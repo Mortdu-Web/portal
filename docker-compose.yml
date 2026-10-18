@@ -4,7 +4,7 @@ services:
     build: .
     env_file: .env
     ports:
-      - "5002:8000"   # 5000 = auth, 5001 = hub-app, 5002 = hub-web (test en local)
+      - "${BIND_IP:-127.0.0.1}:${PORT:-25002}:8000"
     networks: [web]
     restart: unless-stopped
 
