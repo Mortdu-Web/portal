@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }} - Denis ROBERT{% endblock %}
+
+{% block content %}
+<div class="error-page">
+  <h1>{{ code }}</h1>
+  <p>{% if code == 404 %}Cette page n'existe pas.{% else %}{{ name }}{% endif %}</p>
+  <a href="{{ url_for('pages.index') }}">Retour à l'accueil</a>
+</div>
+{% endblock %}

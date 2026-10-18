@@ -1,0 +1,35 @@
+{# Page d'un projet : en-tête + contenu libre (content/.../page.html) + sous-projets éventuels. #}
+{% extends "base.html" %}
+
+{% block title %}{{ project.nom }} - Denis ROBERT{% endblock %}
+{% block description %}{{ project.court }}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/project.css') }}"/>
+{% if project.children %}<link rel="stylesheet" href="{{ url_for('static', filename='css/infobox.css') }}"/>{% endif %}
+{% endblock %}
+
+{% block content %}
+{% from "projets/_components.html" import infobox, project_header %}
+<article class="project">
+
+  <a class="btn-back" href="{{ back_href }}">{{ back_label }}</a>
+
+  {{ project_header(project, show_type) }}
+
+  {# Contenu propre au projet. Si page.html n'existe pas, la page n'affiche que l'en-tête. #}
+  {% include project.template ignore missing %}
+
+  {% if project.children %}
+  <section class="project-section" aria-labelledby="sous-projets">
+    <h2 id="sous-projets">{{ project.enfants_titre }}</h2>
+    <div class="hub-grid">
+      {% for child in project.children %}{{ infobox(child, show_type=false) }}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <a class="btn-back" href="{{ back_href }}">{{ back_label }}</a>
+
+</article>
+{% endblock %}

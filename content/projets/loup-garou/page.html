@@ -1,0 +1,84 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Ce projet de groupe avait un but double : développer un jeu complet et, surtout,
+      apprendre à travailler à plusieurs sur un même code. Nous étions quatre, et l’enjeu
+      était de nous organiser avec Git (branches, fusions, gestion des conflits) pour rester
+      efficaces tout au long du développement.
+    </p>
+    <p>
+      Nous avons choisi d’adapter <em>Les Loups-Garous de Thiercelieux</em> (version de base, sans extension)
+      en ligne de commande, avec une interface dans le terminal.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <p>
+      Avant d’écrire la moindre ligne de code, nous avons rédigé un cahier des charges (janvier 2024).
+      Il nous a permis de nous mettre d’accord sur ce que le jeu devait faire et de nous répartir le travail :
+      nous participions tous à la programmation, avec en plus un rôle principal de tests ou de documentation selon les membres.
+    </p>
+    <p>Concrètement, j’ai suivi les étapes suivantes :</p>
+    <ol class="project-list">
+      <li>
+        <strong>Spécifier chaque fonctionnalité.</strong> Chaque fonctionnalité a un code (1.1 pour démarrer une partie,
+        2.1 pour la sorcière, 3.4 pour la nuit, etc.) avec son déclencheur, son comportement attendu et le retour affiché au joueur.
+      </li>
+      <li>
+        <strong>Concevoir l’architecture.</strong> Nous avons dessiné un diagramme de classes avant de coder :
+        une classe <em>Jeu</em> au centre, une classe <em>Joueur</em> dont héritent tous les rôles,
+        et des classes séparées pour l’interface, l’audio, le terminal et la sauvegarde.
+      </li>
+      <li>
+        <strong>Définir des conventions communes.</strong> Noms en français, classes en CamelCase,
+        fonctions et variables en snake_case, accesseurs et mutateurs préfixés par <code>get</code> et <code>set</code>,
+        pour que le code reste lisible quel que soit son auteur.
+      </li>
+      <li>
+        <strong>Travailler avec Git.</strong> Chacun développait sur sa branche, puis nous fusionnions
+        sur le dépôt GitHub en résolvant les conflits quand ils apparaissaient.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+    <p>Le jeu, développé en Python (3.12), propose les fonctionnalités suivantes :</p>
+    <ul class="project-list">
+      <li>Une interface dans le terminal, construite avec la bibliothèque <code>curses</code>.</li>
+      <li>La sauvegarde et le chargement des parties (fichier JSON).</li>
+      <li>Des sons d’ambiance et une narration audio avec <code>pygame</code>, ainsi que de l’ASCII art, pour retrouver l’atmosphère du jeu de société.</li>
+      <li>Le lancement de parties simplifiées ou complètes.</li>
+      <li>Tous les rôles du jeu de base : loup-garou, simple villageois, voyante, sorcière, chasseur, Cupidon, voleur et petite fille.</li>
+      <li>Le déroulement complet d’une partie : élection du maire, nuit, réveil du village, vote d’élimination et vérification des conditions de victoire (villageois, loups-garous ou couple).</li>
+    </ul>
+    <p>
+      Côté outils, j’ai utilisé Git et GitHub pour le code, Google Docs pour centraliser la documentation,
+      et <code>pyautogui</code> pour passer automatiquement le terminal en plein écran afin d’améliorer l’immersion.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Les conflits Git lorsque plusieurs d’entre nous modifiaient les mêmes fichiers, en particulier la classe centrale du jeu.</p>
+        <p><strong>Solution&nbsp;:</strong> Travailler sur des branches séparées, faire des fusions régulières et nous répartir les fichiers pour limiter les modifications simultanées.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Faire fonctionner ensemble l’interface dans le terminal, l’audio et la logique du jeu.</p>
+        <p><strong>Solution&nbsp;:</strong> Isoler l’affichage et le son dans des classes dédiées (interface, terminal, audio), pour que la logique du jeu ne dépende pas de leur fonctionnement interne.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j’en retiens</h2>
+    <p>
+      Ce projet m’a appris qu’un travail d’équipe se prépare : un cahier des charges clair,
+      une architecture pensée à l’avance et des conventions partagées ont rendu la collaboration
+      beaucoup plus fluide. J’y ai aussi gagné en aisance avec Git et avec la structuration
+      d’un projet Python en plusieurs classes.
+    </p>
+  </section>

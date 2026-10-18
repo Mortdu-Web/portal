@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Denis ROBERT — Contact{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="section">
+  <p class="section-tag">Restons en contact</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Écrivez-moi</h3>
+      <p>Une question, une proposition de collaboration ou simplement l'envie d'échanger ? Je lis tous les messages avec plaisir.</p>
+      <div class="contact-detail">
+        <div class="contact-item"><span class="contact-item-icon">✉</span><span>dr05@orange.fr</span></div>
+        <div class="contact-item"><span class="contact-item-icon">📍</span><span>France</span></div>
+        <div class="contact-item"><span class="contact-item-icon">🕐</span><span>Réponse sous 48h</span></div>
+      </div>
+    </div>
+    <form class="contact-form" id="contact-form" action="{{ url_for('pages.send_mail') }}" method="post">
+      <div class="form-group"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Votre nom complet" maxlength="100" required/></div>
+      <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="votre@email.com" maxlength="254" required/></div>
+      <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Votre message…" maxlength="5000" required></textarea></div>
+      {# Honeypot anti-robots : invisible pour un humain. #}
+      <div class="hp" aria-hidden="true"><label>Ne pas remplir <input name="website" type="text" tabindex="-1" autocomplete="off"/></label></div>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer le message</button>
+      <p id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/contact.js') }}" defer></script>
+{% endblock %}

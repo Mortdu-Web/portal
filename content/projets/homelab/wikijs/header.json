@@ -1,0 +1,12 @@
+{
+  "nom": "Wiki.js",
+  "date": "A COMPLETER",
+  "type": "personnel",
+  "git": null,
+  "court": "Éditeur de wiki partagé, auto-hébergé.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "Wiki.js"
+  ],
+  "ordre": 80
+}

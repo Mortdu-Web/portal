@@ -1,0 +1,12 @@
+{
+  "nom": "Reverse proxy",
+  "date": "A COMPLETER",
+  "type": "personnel",
+  "git": null,
+  "court": "Reverse proxy Nginx pour exposer les services du HomeLab.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "Nginx"
+  ],
+  "ordre": 20
+}

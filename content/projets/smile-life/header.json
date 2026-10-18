@@ -1,0 +1,14 @@
+{
+  "nom": "Smile Life en ligne",
+  "date": "2026",
+  "type": "personnel",
+  "git": "https://github.com/mortdu1234/smile-life",
+  "court": "Version web du jeu de société Smile Life, avec gestion des sessions et validation des entrées.",
+  "accroche": "Développement en Python (Flask) d'une version web du jeu de société Smile Life avec une gestion des sessions et une validation des entrées.",
+  "stack": [
+    "Python",
+    "Flask",
+    "JavaScript"
+  ],
+  "ordre": 20
+}

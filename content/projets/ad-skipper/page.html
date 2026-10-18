@@ -1,0 +1,57 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Je joue au jeu mobile Dragon City, qui propose chaque jour des récompenses en échange du visionnage de publicités.
+      Pour obtenir ces récompenses sans avoir la charge mentale de m'en occuper tous les jours,
+      j'ai décidé de réaliser une application qui automatise cette tâche.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <ol class="project-list">
+      <li>
+        <strong>Chercher une solution existante.</strong> Avant de développer quoi que ce soit,
+        j'ai vérifié si un outil répondant à mon besoin existait déjà.
+      </li>
+      <li>
+        <strong>Développer ma propre solution.</strong> Je n'en ai pas trouvé, j'ai donc décidé de la réaliser moi-même.
+      </li>
+      <li>
+        <strong>Choisir l'outil adapté.</strong> Il me fallait un moyen de repérer des éléments à l'écran
+        (boutons, croix de fermeture) : j'ai retenu la recherche de modèles dans une image.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+    <p>
+      J'ai utilisé OpenCV, qui permet de rechercher des modèles (<em>templates</em>) dans une image.
+      Le programme analyse ce qui est affiché à l'écran, repère les éléments à cliquer,
+      comme le bouton pour lancer une publicité ou la croix pour la fermer, et enchaîne les actions à ma place.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Chaque publicité a une croix différente, placée à un endroit différent.</p>
+        <p><strong>Solution&nbsp;:</strong> Effectuer la recherche à partir de plusieurs modèles et les mettre à jour régulièrement.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Trouver un émulateur capable de lancer le jeu et le programme sur la même machine.</p>
+        <p><strong>Solution&nbsp;:</strong> Je n'ai pas encore réussi à trouver un émulateur qui permette d'héberger l'application et de la faire fonctionner en autonomie. C'est la prochaine étape du projet.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j'en retiens</h2>
+    <p>
+      Ce projet m'a appris à partir d'un besoin réel pour construire un outil sur mesure,
+      et à utiliser la recherche de modèles d'OpenCV. Il reste à le rendre pleinement autonome
+      en trouvant un environnement où il peut tourner sans intervention de ma part.
+    </p>
+  </section>

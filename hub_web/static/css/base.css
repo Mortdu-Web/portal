@@ -1,0 +1,153 @@
+/* ── Socle commun : thèmes, reset, navigation, pied de page ──
+   ⚠️ Palette de départ écrite pour ce repo : remplace les valeurs ci-dessous par celles de ton thème.
+   Toutes les couleurs du site passent par ces variables (aucune couleur en dur dans les autres CSS).
+
+   Choix du thème :
+   1. data-theme="dark|light" sur <html>, posé par js/theme.js (choix mémorisé, sinon réglage de l'OS) ;
+   2. sans JavaScript : le réglage de l'OS (prefers-color-scheme), sombre par défaut.
+   Le jeu de variables « clair » est donc écrit deux fois (bloc 2 et 3) : garde-les identiques. */
+
+/* 1. Sombre (défaut) */
+:root {
+  color-scheme: dark;
+  --bg: #14120f;
+  --surface: #1c1a16;
+  --text: #e6e0d4;
+  --accent: #f2ebdd;
+  --muted: #9a9283;
+  --line: #2e2a23;
+  --gold: #b89a6a;
+  --nav-bg: rgba(20, 18, 15, 0.92);
+  --watermark: rgba(184, 154, 106, 0.07);
+  --ok: #7fb069;
+  --err: #e0786b;
+  --nav-h: 72px;
+}
+
+/* 2. Clair : réglage de l'OS, tant que l'utilisateur n'a rien choisi */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #f7f3ea;
+    --surface: #fffdf8;
+    --text: #3e3730;
+    --accent: #241f1a;
+    --muted: #6b6256;
+    --line: #ddd4c3;
+    --gold: #8a6a35;
+    --nav-bg: rgba(247, 243, 234, 0.92);
+    --watermark: rgba(138, 106, 53, 0.08);
+    --ok: #2f6f2a;
+    --err: #b3382c;
+  }
+}
+
+/* 3. Clair : choix explicite */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f7f3ea;
+  --surface: #fffdf8;
+  --text: #3e3730;
+  --accent: #241f1a;
+  --muted: #6b6256;
+  --line: #ddd4c3;
+  --gold: #8a6a35;
+  --nav-bg: rgba(247, 243, 234, 0.92);
+  --watermark: rgba(138, 106, 53, 0.08);
+  --ok: #2f6f2a;
+  --err: #b3382c;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+[hidden] { display: none !important; }
+
+body {
+  font-family: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+a { color: var(--gold); }
+img { max-width: 100%; height: auto; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ── Navigation ── */
+.site-nav {
+  position: sticky; top: 0; z-index: 10;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 500;
+  color: var(--accent); text-decoration: none; letter-spacing: 0.04em;
+}
+.brand em { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.site-nav ul { list-style: none; display: flex; gap: 32px; }
+.site-nav nav a {
+  font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  padding: 6px 0; border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.site-nav nav a:hover,
+.site-nav nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--gold); }
+
+/* ── Connexion ── */
+.nav-auth { display: flex; align-items: center; gap: 16px; }
+.nav-quiet { font-size: 0.8rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+.nav-quiet:hover { color: var(--accent); border-bottom-color: var(--gold); }
+
+/* ── Bouton de bascule clair / sombre ── */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; padding: 0;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 50%;
+  cursor: pointer; transition: color 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--gold); }
+.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Icône = le thème vers lequel on bascule : soleil en sombre, lune en clair. */
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme]) .theme-toggle .icon-moon { display: block; }
+}
+
+/* ── Pied de page ── */
+.site-footer {
+  padding: 28px 48px;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem; color: var(--muted); text-align: center;
+}
+
+/* ── Page d'erreur ── */
+.error-page { text-align: center; padding: 96px 24px; }
+.error-page h1 { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: var(--accent); }
+.error-page p { margin: 8px 0 24px; color: var(--muted); }
+
+@media (max-width: 768px) {
+  .site-nav { height: auto; min-height: var(--nav-h); flex-wrap: wrap; gap: 8px 16px; padding: 10px 20px; }
+  .nav-right { flex-wrap: wrap; justify-content: flex-end; row-gap: 8px; }
+  .nav-right { gap: 16px; }
+  .site-nav ul { gap: 16px; }
+  .site-footer { padding: 24px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .site-nav nav a, .theme-toggle { transition: none; }
+}

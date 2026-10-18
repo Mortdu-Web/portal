@@ -1,0 +1,63 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Réaliser une application qui permet de résoudre automatiquement le jeu de 2048 présent
+      dans le jeu mobile Castle Clash.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <p>J’ai découpé le projet en trois étapes :</p>
+    <ol class="project-list">
+      <li>
+        <strong>Trouver un algorithme de résolution.</strong> Mes recherches m’ont mené à l’algorithme
+        Expectimax, adapté aux jeux comportant une part de hasard comme le 2048.
+      </li>
+      <li>
+        <strong>Réutiliser un projet existant.</strong> J’ai récupéré les fichiers du
+        <a href="https://github.com/cczhong11/2048-ai">projet de cczhong11</a>, qui fournit à la fois un simulateur
+        et l’algorithme, plutôt que de tout recoder.
+      </li>
+      <li>
+        <strong>Adapter le programme à mon entrée.</strong> Il me restait à faire le lien entre le jeu
+        Castle Clash et ce programme.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+    <p>
+      Dans Castle Clash, les cases du 2048 ne contiennent pas des chiffres mais des images.
+      Le programme ne pouvait donc pas lire directement l’état de la grille.
+    </p>
+    <p>
+      J’ai utilisé EasyOCR pour analyser l’image du jeu et en extraire le texte, c’est-à-dire la valeur de chaque case.
+      La grille ainsi reconstituée est ensuite transmise à l’algorithme Expectimax, qui détermine le meilleur coup à jouer.
+      J’ai obtenu des résultats concluants.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Une durée de développement très courte, le 2048 étant un événement temporaire du jeu.</p>
+        <p><strong>Solution&nbsp;:</strong> Partir d’un projet existant (simulateur et algorithme) pour me concentrer uniquement sur l’adaptation à mon entrée.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Une analyse de l’image parfois erronée. Avec ma méthode de récupération de la grille, la police d’écriture du jeu fait que le texte est mal reconnu dans certains cas.</p>
+        <p><strong>Solution&nbsp;:</strong> Une piste d’amélioration serait de remplacer la recherche de texte par une recherche de modèle (<em>template matching</em>) dans l’image.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j’en retiens</h2>
+    <p>
+      Ce projet m’a montré l’intérêt de s’appuyer sur un travail existant quand le temps est limité,
+      et les limites de l’OCR quand le texte à lire est stylisé. Dans une prochaine version,
+      je privilégierais la reconnaissance de modèles pour fiabiliser la lecture de la grille.
+    </p>
+  </section>

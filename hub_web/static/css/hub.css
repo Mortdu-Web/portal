@@ -1,0 +1,70 @@
+/* ── Page hub des projets ── */
+[hidden] { display: none !important; }
+
+.hub {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 72px 48px 96px;
+}
+
+.hub-intro h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--accent);
+}
+.hub-intro p {
+  max-width: 62ch;
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+/* ── Filtres ── */
+.hub-filters {
+  margin: 48px 0 8px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 9px 16px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.chip-small { font-size: 0.78rem; padding: 7px 12px; }
+.chip:hover { color: var(--accent); border-color: var(--gold); }
+.chip.is-active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ── Sections ── */
+.hub-section { margin-top: 56px; }
+.hub-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.hub-empty { margin-top: 48px; color: var(--muted); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hub { padding: 48px 24px 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip { transition: none; }
+}

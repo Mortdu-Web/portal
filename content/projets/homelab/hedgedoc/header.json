@@ -1,0 +1,12 @@
+{
+  "nom": "HedgeDoc",
+  "date": "A COMPLETER",
+  "type": "personnel",
+  "git": null,
+  "court": "Éditeur Markdown partagé, auto-hébergé.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "HedgeDoc"
+  ],
+  "ordre": 70
+}

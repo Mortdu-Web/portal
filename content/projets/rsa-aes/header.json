@@ -1,0 +1,14 @@
+{
+  "nom": "Chiffrement RSA et AES",
+  "date": "2025",
+  "type": "academique",
+  "git": null,
+  "court": "Implémentation complète de RSA et AES en Python et analyse des erreurs d'implémentation.",
+  "accroche": "Implémentation complète des algorithmes en Python tout en analysant différentes erreurs d'implémentation (side-channel attacks).",
+  "stack": [
+    "Python",
+    "Cryptographie",
+    "Side-channel"
+  ],
+  "ordre": 70
+}

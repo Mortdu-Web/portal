@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Denis ROBERT — À propos{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/apropos.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="section">
+  <p class="section-tag">Mon parcours</p>
+  <div class="about-grid">
+
+    <!-- Vignette du CV (clic = ouverture du modal) -->
+    <div class="about-photo">
+      <a class="cv-thumb" id="cv-open"
+         href="{{ url_for('static', filename='img/CV.pdf') }}"
+         target="_blank" rel="noopener"
+         aria-label="Agrandir mon CV">
+        <img src="{{ url_for('static', filename='img/CV.png') }}" alt="Aperçu de mon CV">
+        <span class="cv-thumb-hint">Cliquer pour agrandir</span>
+      </a>
+    </div>
+
+    <div class="about-content">
+      <h2 class="section-title">À propos<br/><em style="font-style:italic;color:var(--gold);">de moi</em></h2>
+      <p class="about-text">
+        Étudiant en 4e année de cybersécurité du logiciel à l’ENSIBS,
+        passionné par le développement sécurisé. Bases solides en cryptographie
+        (implémentation de RSA et AES), en développement (Python, Java, Node.js, Flask)
+        et en administration système (auto-hébergement sous Proxmox, étude de SIEM :
+        Sentinel, QRadar, Splunk). À la recherche d’un stage de 13 semaines minimum
+        entre le 18 mai et le 1er septembre 2027 en Bretagne et aux alentours,
+        avec l’objectif de poursuivre en contrat de professionnalisation.
+      </p>
+      <p class="section-tag" style="margin-bottom:12px;">Centres d'intérêt</p>
+      <ul class="skills-list">
+        <li>Informatique</li><li>Cybersécurité</li><li>Badminton</li>
+        <li>Jeux de Société</li><li>Automatisation</li><li>Programmation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal CV -->
+<dialog class="cv-modal" id="cv-modal" aria-labelledby="cv-modal-title">
+  <div class="cv-modal-bar">
+    <span class="cv-modal-title" id="cv-modal-title">Mon CV</span>
+    <a class="cv-download"
+       href="{{ url_for('static', filename='img/CV.pdf') }}"
+       download="CV_Denis_ROBERT.pdf">Download</a>
+    <button type="button" class="cv-close" id="cv-close" aria-label="Fermer">&times;</button>
+  </div>
+  <iframe id="cv-frame" title="CV de Denis ROBERT"
+          data-src="{{ url_for('static', filename='img/CV.pdf') }}#view=FitH"></iframe>
+</dialog>
+
+<script src="{{ url_for('static', filename='js/apropos.js') }}" defer></script>
+{% endblock %}

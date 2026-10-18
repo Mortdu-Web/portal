@@ -1,0 +1,109 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Le hasard est au cœur des protocoles de sécurité : les nombres aléatoires servent à générer
+      des clés secrètes, des nonces, des vecteurs d'initialisation ou des jetons CSRF.
+      Si la génération est mal faite, un attaquant peut prédire les valeurs suivantes
+      et compromettre tout le système.
+    </p>
+    <p>
+      Avec deux camarades, j'ai donc implémenté plusieurs algorithmes de génération de nombres aléatoires,
+      mesuré la qualité de leur aléa et réalisé deux attaques à but pédagogique contre les générateurs vulnérables.
+      Ces attaques sont uniquement destinées à l'apprentissage et sont interdites sur des systèmes réels.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <p>Nous avons procédé en trois temps :</p>
+    <ol class="project-list">
+      <li>
+        <strong>Implémenter des générateurs de natures différentes</strong>, du plus simple au plus sûr,
+        pour pouvoir les comparer.
+      </li>
+      <li>
+        <strong>Évaluer leur qualité</strong> avec une suite de tests statistiques.
+      </li>
+      <li>
+        <strong>Attaquer les plus faibles</strong> pour montrer concrètement ce qu'une mauvaise qualité d'aléa
+        permet à un attaquant.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+
+    <h3>Les générateurs implémentés</h3>
+    <ul class="project-list">
+      <li><strong>LCG</strong> (générateur congruentiel linéaire) : simple et rapide, basé sur la formule Xn+1 = (a × Xn + c) mod m.</li>
+      <li><strong>Mersenne Twister (MT19937)</strong> : un générateur de très longue période (2<sup>19937</sup> − 1), très utilisé en simulation.</li>
+      <li><strong>Blum Blum Shub</strong> : un générateur cryptographiquement sûr, fondé sur le problème de la racine carrée modulaire.</li>
+      <li><strong>Hash-DRBG</strong> : un générateur déterministe basé sur SHA-256, conforme à la norme NIST SP 800-90A.</li>
+      <li><strong>Box-Muller</strong> : une transformation qui convertit une distribution uniforme en distribution normale N(0,1).</li>
+      <li><strong>NRBG</strong> : un générateur qui combine plusieurs sources d'entropie (système, Mersenne Twister et BBS).</li>
+    </ul>
+
+    <h3>L'analyse de la qualité</h3>
+    <p>J'ai écrit une suite de tests statistiques pour comparer les générateurs :</p>
+    <ul class="project-list">
+      <li>l'entropie de Shannon, qui mesure la répartition des octets générés (valeur idéale : 8 bits) ;</li>
+      <li>le test du χ², qui vérifie l'uniformité de la distribution ;</li>
+      <li>le test d'autocorrélation (décalages de 1, 2, 8 et 16), qui détecte les liens entre valeurs successives ;</li>
+      <li>le test de Kolmogorov-Smirnov, qui compare la distribution obtenue à une loi uniforme théorique.</li>
+    </ul>
+    <p>Les résultats de tous les générateurs sont exportés dans un rapport texte.</p>
+
+    <h3>Les attaques pédagogiques</h3>
+    <ul class="project-list">
+      <li>
+        <strong>Sur le LCG</strong> : quand les paramètres sont connus, on remonte la séquence jusqu'à la graine initiale.
+        Quand ils sont inconnus, on les retrouve (module par PGCD de différences, multiplicateur par inversion modulaire,
+        incrément par substitution) à partir de quelques sorties consécutives seulement.
+      </li>
+      <li>
+        <strong>Sur le Mersenne Twister</strong> : on inverse la fonction de « tempering » pour retrouver l'état interne.
+        Avec 624 sorties consécutives, on peut reconstituer l'état complet et prédire toutes les sorties suivantes.
+      </li>
+    </ul>
+
+    <h3>Ce que montrent les résultats</h3>
+    <ul class="project-list">
+      <li>Le <strong>Mersenne Twister</strong> a d'excellentes propriétés statistiques mais reste prévisible.</li>
+      <li><strong>BBS</strong> est très bon et sûr, mais lent.</li>
+      <li>Le <strong>LCG</strong> est rapide mais statistiquement faible et facile à attaquer.</li>
+      <li><strong>Hash-DRBG</strong> offre d'excellentes propriétés cryptographiques et reste recommandé pour un usage sécurisé.</li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Un bon score aux tests statistiques ne garantit pas la sécurité : le Mersenne Twister les réussit bien et pourtant il est prévisible.</p>
+        <p><strong>Solution&nbsp;:</strong> Ne pas me limiter aux tests statistiques et compléter l'analyse par des attaques, pour distinguer un aléa « de bonne qualité » d'un aléa « cryptographiquement sûr ».</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Retrouver les paramètres d'un LCG quand ils sont inconnus.</p>
+        <p><strong>Solution&nbsp;:</strong> Exploiter la structure mathématique du générateur : PGCD de différences pour le module, inversion modulaire pour le multiplicateur, puis substitution pour l'incrément.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Les générateurs sûrs, comme BBS, sont nettement plus lents que les autres.</p>
+        <p><strong>Solution&nbsp;:</strong> Accepter ce compromis entre vitesse et sécurité, et choisir le générateur selon l'usage (simulation ou cryptographie).</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j'en retiens</h2>
+    <p>
+      Ce projet m'a montré qu'un générateur peut sembler aléatoire sans être sûr, et qu'il faut
+      choisir son générateur selon l'usage : pour la cryptographie, on privilégie une solution comme Hash-DRBG
+      ou le module <code>secrets</code> de Python, jamais un LCG ou un Mersenne Twister.
+      Il m'a aussi permis de mettre en pratique des notions de mathématiques et de statistiques
+      dans un cadre concret de sécurité informatique.
+    </p>
+    <p>
+      Projet réalisé avec Noah Mahé et Gatien Andrinirina.
+    </p>
+  </section>

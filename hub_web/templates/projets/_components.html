@@ -1,0 +1,54 @@
+{# Composants réutilisables des pages projets. Utilisation : {% from "projets/_components.html" import infobox, project_header %} #}
+
+{% macro infobox(project, show_type=true) %}
+<a class="infobox"
+   href="{{ project_url(project) }}"
+   data-type="{{ project.type }}"
+   data-stack="{{ project.stack | join('|') }}">
+  <div class="infobox-meta">
+    {% if show_type %}<span class="infobox-type">{{ PROJECT_TYPES[project.type] }}</span>{% endif %}
+    <time>{{ project.date }}</time>
+  </div>
+  <h3 class="infobox-title">{{ project.nom }}</h3>
+  <p class="infobox-text">{{ project.court }}</p>
+  <ul class="tags">
+    {% for s in project.stack %}<li>{{ s }}</li>{% endfor %}
+  </ul>
+</a>
+{% endmacro %}
+
+{% macro project_header(project, show_type=true) %}
+<header class="project-header">
+  <h1>{{ project.nom }}</h1>
+  <p class="project-pitch">{{ project.accroche }}</p>
+
+  <dl class="project-meta">
+    <div>
+      <dt>Date</dt>
+      <dd>{{ project.date }}</dd>
+    </div>
+    {% if show_type %}
+    <div>
+      <dt>Type</dt>
+      <dd>{{ PROJECT_TYPES[project.type] }}</dd>
+    </div>
+    {% endif %}
+    {% if project.git %}
+    <div>
+      <dt>Code source</dt>
+      <dd><a href="{{ project.git }}" target="_blank" rel="noopener noreferrer">Voir le dépôt Git</a></dd>
+    </div>
+    {% endif %}
+    {% if project.stack %}
+    <div class="project-meta-stack">
+      <dt>Technologies</dt>
+      <dd>
+        <ul class="tags">
+          {% for s in project.stack %}<li>{{ s }}</li>{% endfor %}
+        </ul>
+      </dd>
+    </div>
+    {% endif %}
+  </dl>
+</header>
+{% endmacro %}

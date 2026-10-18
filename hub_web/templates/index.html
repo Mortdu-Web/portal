@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Denis ROBERT — Accueil{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="hero-label">Bienvenue sur mon espace</p>
+  <h1>Denis<br/><em>ROBERT</em></h1>
+  <p class="hero-desc">Passionné d'informatique, je vous partage mon espace personnel</p>
+  <div class="hero-actions">
+    <a class="btn btn-outline" href="{{ url_for('pages.apropos') }}">En savoir plus</a>
+    <a class="btn btn-outline" href="{{ url_for('projets.hub') }}">Mes projets</a>
+  </div>
+</section>
+{% endblock %}

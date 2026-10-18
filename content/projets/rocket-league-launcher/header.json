@@ -1,0 +1,12 @@
+{
+  "nom": "Launcher Rocket League multi-comptes",
+  "date": "A COMPLETER",
+  "type": "personnel",
+  "git": null,
+  "court": "Launcher en Python pour gérer plusieurs comptes Rocket League et en changer facilement, à partir de projets existants.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "Python"
+  ],
+  "ordre": 50
+}

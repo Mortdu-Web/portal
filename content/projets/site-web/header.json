@@ -1,0 +1,15 @@
+{
+  "nom": "Site web personnel",
+  "date": "2026",
+  "type": "personnel",
+  "git": "https://github.com/mortdu1234/MaPageWeb",
+  "court": "Mon portfolio, développé en Flask et hébergé dans un conteneur Docker sur mon serveur.",
+  "accroche": "Conception de mon site en Python (Flask) hébergé dans un conteneur Docker sur mon serveur.",
+  "stack": [
+    "Python",
+    "Flask",
+    "Docker",
+    "JavaScript"
+  ],
+  "ordre": 30
+}

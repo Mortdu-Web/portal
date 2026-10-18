@@ -1,0 +1,13 @@
+{
+  "nom": "Solveur 2048 (Castle Clash)",
+  "date": "2025",
+  "type": "personnel",
+  "git": "https://github.com/mortdu1234/2048-AI",
+  "court": "Programme qui analyse l'état du jeu 2048 de Castle Clash, détermine le meilleur coup et le joue.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "Python",
+    "easyocr"
+  ],
+  "ordre": 40
+}

@@ -1,0 +1,19 @@
+{
+  "nom": "HomeLab personnel",
+  "date": "2025 - 2026",
+  "type": "personnel",
+  "git": null,
+  "court": "Serveur Proxmox auto-hébergé avec accès distant sécurisé et authentification centralisée.",
+  "accroche": "Conception d'un serveur sous Proxmox : accès distant sécurisé via WireGuard, reverse proxy Nginx et SSO avec Keycloak pour mes applications conteneurisées.",
+  "stack": [
+    "Proxmox",
+    "LXC",
+    "WireGuard",
+    "Nginx",
+    "Keycloak",
+    "Docker"
+  ],
+  "ordre": 10,
+  "enfants_titre": "Services du HomeLab",
+  "enfants_retour": "← Retour au HomeLab"
+}

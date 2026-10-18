@@ -1,0 +1,14 @@
+{
+  "nom": "Algorithme génétique",
+  "date": "2025",
+  "type": "academique",
+  "git": "https://github.com/mortdu1234/algoEtProgProjet",
+  "court": "Génération d'un labyrinthe avec DFS, puis résolution par un algorithme génétique.",
+  "accroche": "Réalisation d'un labyrinthe en Python avec l'algorithme DFS puis résolution via un algorithme génétique.",
+  "stack": [
+    "Python",
+    "DFS",
+    "Algorithme génétique"
+  ],
+  "ordre": 90
+}

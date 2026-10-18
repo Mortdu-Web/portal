@@ -1,0 +1,12 @@
+{
+  "nom": "Jeu Splendor en Java",
+  "date": "2024",
+  "type": "academique",
+  "git": "https://github.com/certyou/Splendor",
+  "court": "Jeu de société Splendor développé en Java.",
+  "accroche": "A COMPLETER",
+  "stack": [
+    "Java"
+  ],
+  "ordre": 100
+}

@@ -1,0 +1,65 @@
+/* ── Grille + infobox : utilisées par le hub /projets et par la page HomeLab ── */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── Infobox ── */
+.infobox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.infobox[data-type="academique"]:hover { border-left-color: var(--accent); }
+.infobox[data-type="personnel"]:hover  { border-left-color: var(--gold); }
+.infobox:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+.infobox-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.infobox-type { color: var(--accent); font-weight: 500; }
+
+.infobox-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent);
+}
+.infobox-text { font-size: 0.92rem; color: var(--muted); flex: 1; }
+
+/* ── Tags de l'infobox ── */
+.infobox .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin-top: 4px; }
+.infobox .tags li {
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 5px 9px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.infobox:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .hub-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infobox { transition: none; }
+  .infobox:hover { transform: none; }
+}

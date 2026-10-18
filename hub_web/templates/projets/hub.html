@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Projets - Denis ROBERT{% endblock %}
+
+{% block description %}Mes projets académiques et personnels, de la cryptographie à l'auto-hébergement.{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/infobox.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/hub.css') }}"/>
+{% endblock %}
+
+{% block content %}
+{% from "projets/_components.html" import infobox %}
+<div class="hub">
+
+  <header class="hub-intro">
+    <h1>Mes projets</h1>
+    <p>Projets réalisés pendant mes études et par curiosité, de la cryptographie à l'auto-hébergement. Cliquez sur un projet pour voir son objectif, sa réalisation et les difficultés rencontrées.</p>
+  </header>
+
+  <div class="hub-filters" aria-label="Filtrer les projets">
+    <div class="filter-row" data-filter="type" role="group" aria-label="Type de projet">
+      <button type="button" class="chip is-active" data-value="">Tous</button>
+      {% for key, label in PROJECT_TYPES.items() %}
+      <button type="button" class="chip" data-value="{{ key }}" aria-pressed="false">{{ label }}</button>
+      {% endfor %}
+    </div>
+    <div class="filter-row" data-filter="stack" role="group" aria-label="Technologie">
+      {% for stack in stacks %}
+      <button type="button" class="chip chip-small" data-value="{{ stack }}" aria-pressed="false">{{ stack }}</button>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% for section in sections %}
+  <section class="hub-section" data-section="{{ section.key }}" aria-labelledby="titre-{{ section.key }}">
+    <h2 id="titre-{{ section.key }}">{{ section.titre }}</h2>
+    <div class="hub-grid">
+      {% for project in section.projets %}
+        {{ infobox(project) }}
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p class="hub-empty" id="hub-empty" hidden>Aucun projet ne correspond à ces filtres. Retirez un filtre pour en voir plus.</p>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/hub.js') }}" defer></script>
+{% endblock %}

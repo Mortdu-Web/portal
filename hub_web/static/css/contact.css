@@ -1,0 +1,20 @@
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--accent); margin-bottom: 16px; }
+.contact-info p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 32px; font-weight: 300; }
+.contact-detail { display: flex; flex-direction: column; gap: 16px; }
+.contact-item { display: flex; align-items: center; gap: 14px; font-size: 0.9rem; color: var(--text); }
+.contact-item-icon { width: 38px; height: 38px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.form-group input, .form-group textarea { padding: 13px 16px; border: 1px solid var(--line); background: var(--surface); font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { min-height: 120px; }
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+/* Honeypot anti-robots (hors écran, pas display:none que certains robots détectent) */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Message de retour du formulaire */
+#form-status { margin-top: 1rem; }
+#form-status.is-ok { color: var(--ok); }
+#form-status.is-error { color: var(--err); }

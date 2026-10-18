@@ -1,0 +1,71 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Ce projet consistait à comparer plusieurs solutions SIEM (<em>Security Information and Event Management</em>)
+      afin de comprendre leurs approches de la détection et de la supervision de la sécurité.
+      Un SIEM centralise les journaux d’événements d’un système d’information, les analyse et
+      remonte des alertes quand un comportement suspect est détecté.
+    </p>
+    <p>
+      Mon but était de comprendre comment ces outils fonctionnent et en quoi leurs choix
+      (architecture, langage de requête, détection) diffèrent d’une solution à l’autre.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <p>J’ai choisi trois solutions représentatives du marché et je les ai étudiées une par une :</p>
+    <ul class="project-list">
+      <li>
+        <strong>Microsoft Sentinel</strong> : un SIEM natif du cloud, intégré à Azure, qui s’appuie sur le
+        langage de requête KQL et sur des règles d’analyse pour détecter les menaces.
+      </li>
+      <li>
+        <strong>IBM QRadar</strong> : une solution qui corrèle les événements et les flux réseau et
+        regroupe les détections sous forme d’« offenses » à traiter.
+      </li>
+      <li>
+        <strong>Splunk</strong> : une plateforme centrée sur la collecte et la recherche de données,
+        interrogée avec le langage SPL et complétée par Splunk Enterprise Security pour la détection.
+      </li>
+    </ul>
+    <p>
+      Pour chacune, je me suis intéressé à la même chose : comment les données sont collectées,
+      comment elles sont interrogées, comment les alertes sont produites et comment on les traite.
+      Cette grille m’a permis de comparer les outils sur des bases équivalentes plutôt que de
+      simplement les décrire les uns après les autres.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+    <ul class="project-list">
+      <li>Étude comparative de Microsoft Sentinel, IBM QRadar et Splunk afin de comprendre leur fonctionnement.</li>
+      <li>Analyse de la collecte des journaux, du langage de requête et de la logique de détection de chaque solution.</li>
+      <li>Mise en regard des points forts et des limites de chaque outil.</li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Chaque éditeur emploie son propre vocabulaire (alertes, incidents, offenses, notable events), ce qui rend la comparaison difficile.</p>
+        <p><strong>Solution&nbsp;:</strong> Établir une grille de critères commune pour rapprocher des notions équivalentes d’un outil à l’autre.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Ces solutions sont complexes et souvent payantes, donc difficiles à tester dans leur intégralité.</p>
+        <p><strong>Solution&nbsp;:</strong> M’appuyer sur la documentation officielle et sur les versions d’évaluation ou gratuites quand elles existent.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j’en retiens</h2>
+    <p>
+      Cette étude m’a permis de mieux comprendre le rôle d’un SIEM dans la supervision de la sécurité
+      et de voir que les trois solutions répondent au même besoin avec des philosophies différentes :
+      cloud, corrélation ou recherche de données. J’ai aussi appris à comparer des outils
+      de façon structurée.
+    </p>
+  </section>

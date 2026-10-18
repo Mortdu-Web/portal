@@ -1,0 +1,100 @@
+  <section class="project-section" aria-labelledby="objectif">
+    <h2 id="objectif">Objectif du projet</h2>
+    <p>
+      Réaliser une implémentation du jeu de société Splendor en Java, jouable dans la console :
+      de 2 à 4 joueurs, un joueur humain face à des robots.
+      Ce projet était l'occasion de mettre en pratique la programmation orientée objet
+      (classes, héritage, interfaces) sur un jeu aux règles bien définies.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="demarche">
+    <h2 id="demarche">Ma démarche</h2>
+    <p>
+      J'ai commencé par repérer les éléments du jeu (plateau, cartes, ressources, joueurs, actions),
+      puis j'ai attribué à chacun une classe. J'ai ensuite construit le déroulement d'une partie autour d'elles.
+    </p>
+    <ol class="project-list">
+      <li>
+        <strong>Modéliser les éléments du jeu</strong> : les ressources (<code>Resource</code>, <code>Resources</code>),
+        les cartes de développement (<code>DevCard</code>) et le plateau (<code>Board</code>).
+      </li>
+      <li>
+        <strong>Modéliser les joueurs</strong> : une classe abstraite <code>Player</code>
+        dont héritent <code>HumanPlayer</code> et <code>DumbRobotPlayer</code>.
+      </li>
+      <li>
+        <strong>Représenter chaque action possible par une classe</strong> grâce à l'interface <code>Action</code>.
+      </li>
+      <li>
+        <strong>Écrire la boucle de jeu</strong> dans la classe <code>Game</code> : les tours, la limite de jetons et la fin de partie.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="realisation">
+    <h2 id="realisation">Réalisation du projet</h2>
+
+    <h3>Une architecture orientée objet</h3>
+    <ul class="project-list">
+      <li>
+        <strong>Les joueurs</strong> : <code>Player</code> est une classe abstraite qui regroupe ce qui est commun
+        (nom, points, jetons, cartes achetées). Le joueur humain choisit son action dans la console,
+        alors que le robot suit une stratégie simple et prédéterminée.
+      </li>
+      <li>
+        <strong>Les actions</strong> : l'interface <code>Action</code> impose une méthode <code>process</code>,
+        implémentée par <code>BuyCardAction</code>, <code>PickSameTokensAction</code>, <code>PickDiffTokensAction</code>,
+        <code>DiscardTokensAction</code> et <code>PassAction</code>.
+        La classe <code>Game</code> n'a donc pas besoin de savoir quelle action est jouée : elle appelle simplement <code>process</code>.
+      </li>
+      <li>
+        <strong>Le plateau</strong> : il gère les piles de cartes par niveau, les cartes visibles et le stock de jetons.
+        Les cartes sont lues depuis un fichier <code>stats.csv</code> (97 lignes : 40 cartes de niveau 1,
+        30 de niveau 2, 20 de niveau 3 et 8 nobles), puis mélangées au lancement.
+      </li>
+    </ul>
+
+    <h3>Le déroulement d'une partie</h3>
+    <ul class="project-list">
+      <li>Choix du nombre de joueurs (de 2 à 4) et saisie des noms : un joueur humain et des robots pour les autres places.</li>
+      <li>À chaque tour, le joueur peut acheter une carte, prendre deux jetons identiques, prendre trois jetons différents ou passer.</li>
+      <li>Si un joueur dépasse 10 jetons, il doit en défausser.</li>
+      <li>La partie s'arrête lorsqu'un joueur atteint 15 points, et le ou les gagnants sont annoncés.</li>
+    </ul>
+
+    <h3>L'affichage</h3>
+    <p>
+      Le plateau et l'état des joueurs sont dessinés dans la console à l'aide de tableaux de chaînes de caractères
+      que l'on assemble (interface <code>Displayable</code>), avec une flèche pour indiquer le joueur dont c'est le tour.
+      La fenêtre d'affichage (classe <code>Display</code>) nous était fournie.
+    </p>
+  </section>
+
+  <section class="project-section" aria-labelledby="problemes">
+    <h2 id="problemes">Problèmes rencontrés</h2>
+    <ul class="problem-list">
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Le coût réel d'une carte dépend des cartes déjà possédées, puisque chacune apporte une réduction permanente sur une ressource.</p>
+        <p><strong>Solution&nbsp;:</strong> Calculer le coût à payer ressource par ressource, en déduisant ce que fournissent les cartes du joueur (sans jamais descendre sous zéro), avant de mettre à jour les stocks du joueur et du plateau.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Vérifier les choix du joueur humain (carte trop chère, ressource épuisée, même ressource choisie deux fois).</p>
+        <p><strong>Solution&nbsp;:</strong> Contrôler chaque saisie avant d'appliquer l'action et afficher un message d'erreur pour redemander le choix.</p>
+      </li>
+      <li>
+        <p><strong>Problème&nbsp;:</strong> Faire jouer un robot sans écrire une intelligence artificielle complète.</p>
+        <p><strong>Solution&nbsp;:</strong> Lui donner une stratégie simple par ordre de priorité : acheter une carte si possible, sinon prendre des jetons, sinon passer.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-section" aria-labelledby="bilan">
+    <h2 id="bilan">Ce que j'en retiens</h2>
+    <p>
+      Ce projet m'a fait voir l'intérêt de l'héritage et des interfaces : ajouter un type de joueur
+      ou une nouvelle action se fait sans toucher à la boucle de jeu.
+      Il reste des pistes pour aller plus loin : un robot plus malin, la gestion des nobles
+      déjà présents dans le fichier de cartes, ou encore la réservation de cartes.
+    </p>
+  </section>
