@@ -1,10 +1,10 @@
 {
   "nom": "Wiki.js",
-  "date": "A COMPLETER",
+  "date": "2026",
   "type": "personnel",
   "git": null,
   "court": "Éditeur de wiki partagé, auto-hébergé.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Wiki.js"
   ],

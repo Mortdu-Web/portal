@@ -1,10 +1,10 @@
 {
   "nom": "Cloud personnel",
-  "date": "A COMPLETER",
+  "date": "2026",
   "type": "personnel",
   "git": null,
-  "court": "A COMPLETER",
-  "accroche": "A COMPLETER",
-  "stack": [],
+  "court": "Mise en place d'un service NextCloud",
+  "accroche": "",
+  "stack": ["Nextcloud", "cloud"],
   "ordre": 30
 }

@@ -4,7 +4,7 @@
   "type": "personnel",
   "git": "https://github.com/mortdu1234/Ad-skipper-DC",
   "court": "Script qui détecte et ferme automatiquement les publicités du jeu Dragon City.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Python",
     "OpenCV",

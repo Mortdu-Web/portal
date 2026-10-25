@@ -1,10 +1,10 @@
 {
   "nom": "VPN (WireGuard)",
-  "date": "A COMPLETER",
+  "date": "2025",
   "type": "personnel",
   "git": null,
   "court": "Accès distant sécurisé au HomeLab via WireGuard, dans un conteneur LXC.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "WireGuard",
     "LXC"

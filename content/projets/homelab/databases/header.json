@@ -1,10 +1,10 @@
 {
   "nom": "Bases de données",
-  "date": "A COMPLETER",
+  "date": "2026",
   "type": "personnel",
   "git": null,
-  "court": "A COMPLETER",
-  "accroche": "A COMPLETER",
-  "stack": [],
+  "court": "Mise en place d'une base de donnée PostgreSQL",
+  "accroche": "",
+  "stack": ["SQL", "PostgreSQL"],
   "ordre": 10
 }

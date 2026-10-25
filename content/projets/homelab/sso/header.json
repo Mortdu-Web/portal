@@ -1,10 +1,10 @@
 {
   "nom": "SSO (Keycloak)",
-  "date": "A COMPLETER",
+  "date": "2026",
   "type": "personnel",
   "git": null,
   "court": "Authentification unique avec Keycloak pour mes applications conteneurisées.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Keycloak",
     "Docker"

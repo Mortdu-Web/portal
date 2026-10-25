@@ -1,10 +1,10 @@
 {
   "nom": "Reverse proxy",
-  "date": "A COMPLETER",
+  "date": "2026",
   "type": "personnel",
   "git": null,
   "court": "Reverse proxy Nginx pour exposer les services du HomeLab.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Nginx"
   ],

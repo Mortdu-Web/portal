@@ -4,7 +4,7 @@
   "type": "academique",
   "git": "https://github.com/mortdu1234/Generation_de_nombres_aleatoires",
   "court": "Étude de différents algorithmes de génération de nombres aléatoires et implémentation en Python.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Python"
   ],

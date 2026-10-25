@@ -4,7 +4,7 @@
   "type": "personnel",
   "git": "https://github.com/mortdu1234/2048-AI",
   "court": "Programme qui analyse l'état du jeu 2048 de Castle Clash, détermine le meilleur coup et le joue.",
-  "accroche": "A COMPLETER",
+  "accroche": "",
   "stack": [
     "Python",
     "easyocr"
